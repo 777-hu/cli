@@ -1,0 +1,93 @@
+
+.login-wrapper {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	background: url('https://tmidevoss.oss-cn-shanghai.aliyuncs.com/images/tmi-material/images/login.png') center/cover no-repeat;
+
+	.login-form {
+		width: 4.8rem;
+    	height: 6rem;
+		background: #FFFFFF;
+		box-shadow: 0px 0.04rem 0.1rem rgba(0, 0, 0, 0.1);
+		border-radius: 0.2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-right: 2.4rem;
+		position: relative;
+
+		.login-form-title {
+			text-align: center;
+			font-size: 0.48rem;
+			font-weight: 600;
+			color: #1D2129;
+			margin: 0.8rem 0;
+			line-height: 0.56rem;
+		}
+		
+		.login-account {
+			margin-bottom: 0.3rem;
+		}
+		
+		.login-form-input {
+			width: 3rem;
+			height: 0.48rem;
+			line-height: 0.24rem;
+			// background: #F2F3F5;
+			padding: 0.12rem 0.16rem;
+
+			.next-input-label {
+				font-size: 0.16rem;
+				color: #86909C;
+			}
+
+			input {
+				font-size: 0.16rem;
+				line-height: 0.4rem;
+				&::-webkit-input-placeholder{
+					font-size: 0.16rem;
+				}
+			}
+		}
+
+		.forgot-password {
+			font-weight: 600;
+			color: #86909C;
+			line-height: 0.22rem; 
+			// position: absolute;
+			// bottom: 128px;
+			// right: 100px;
+			text-align: right;
+		}
+
+		.login-button {
+			font-size: 0.16rem; 
+			width: 3rem;
+			height: 0.48rem;
+			background-color: #0062FF;
+			border-radius: 0.08rem;
+			font-weight: 500;
+			color: #FFFFFF;
+			line-height: 0.24rem;
+			letter-spacing: 0.06rem;
+			// position: absolute;
+			// bottom: 162px;
+
+			&.un-used {
+				color: #FFFFFF;
+				background: #8BC3FF;
+			}
+
+			&:active {
+				background: #0062FF;
+			}
+	  
+			&:hover {
+				background: #0062FF; 
+			}
+		  }
+	}
+}

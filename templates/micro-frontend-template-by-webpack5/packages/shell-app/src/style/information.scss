@@ -1,0 +1,53 @@
+.information-bar-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 32px;
+    .information-bar-title {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 24px;
+        font-weight: 500;
+        color: #171C25;
+    }
+    .department-selector{
+        width: 80px;
+        height: 32px;
+        margin-top: -5px;
+        background: #F2F3F5;
+        color: #1D2129;
+    }
+
+    .account-icon {
+        width: 52px;
+        height: 52px;
+        background: #F7F8FA;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .information-bar-username {
+        display: inline-block;
+        max-width: 150px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #4C6081;
+        overflow: hidden;
+        vertical-align: bottom;
+        margin-left: 12px;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+   
+}
+.logout-button {
+    width: 134px;
+    background: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #3E4C5D;
+    cursor: pointer;
+}

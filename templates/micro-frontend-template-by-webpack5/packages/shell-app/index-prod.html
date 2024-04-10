@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TMiRob-Medicine-Cabinet</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name='description' content='Taimi Software Platform'>
+    <meta name='author' content="robot@taimi.com">
+    <link rel="shortcut icon" type="image/x-icon" href="data:​image/​x-icon;,">
+    <link rel="icon" href="favicon.ico">
+    <link rel='apple-touch-icon' href='tmirob-logo144.png'>
+    <link rel='manifest' href="manifest.json">
+    <% for(var i = 0;i<htmlWebpackPlugin.options.tags.headTags.length;i++){ %>
+      <script src="<%= htmlWebpackPlugin.options.tags.headTags[i] %>"></script>
+    <% } %>
+</head>
+<body>
+    <div id='shell'></div>
+    <script>
+        (function(){
+          function resize() {
+            document.documentElement.style.fontSize = (window.innerWidth / 1920) * 100 + 'px'
+          }
+          resize()
+          window.addEventListener('resize',resize)
+        })()
+        window.addEventListener('unhandledrejection', function browserRejectionHandler(event) {
+              event && event.preventDefault()
+        })
+        window.onerror = function(e){
+            console.log(e)
+            return true
+        }
+    </script>
+</body>
+</html>

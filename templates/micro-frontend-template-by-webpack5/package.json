@@ -1,0 +1,43 @@
+{
+  "name": "robot-medical-frontend",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@commitlint/prompt-cli": "^17.0.3",
+    "commitlint": "^17.0.3",
+    "commitlint-config-cz": "^0.13.3",
+    "crypto-js": "^4.1.1",
+    "cz-customizable": "^6.9.1",
+    "husky": "^8.0.1",
+    "js-base64": "^3.7.2",
+    "kill-port": "^2.0.1",
+    "lerna": "^4.0.0"
+  },
+  "version": "0.0.1",
+  "description": "web packages for distributed medicine cabinet",
+  "scripts": {
+    "bootstrap": "lerna exec npm install",
+    "kill-ports": "kill-port --port 12000,12001,12003,12004",
+    "start": "npm run kill-ports && lerna run --parallel start",
+    "build": "lerna exec cnpm run build --concurrency=1",
+    "serve": "lerna run --scope @packages/* --parallel serve",
+    "clean": "lerna run --scope @packages/* --parallel clean",
+    "test": "lerna run --parallel test",
+    "prepare": "husky install",
+    "build-test": "lerna exec  --scope basic-data-app --scope test -- cnpm run build --concurrency=1"
+  },
+  "keywords": [
+    "micro-frontend",
+    "module-federation",
+    "react"
+  ],
+  "author": "yuqing.hao@tmirob.com, bingjing.wang@tmirob.com, yanpin.chen@tmirob.com",
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "dependencies": {}
+}

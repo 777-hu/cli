@@ -1,0 +1,25 @@
+{
+    "setupFilesAfterEnv": [
+      "<rootDir>/__test__/setupTests.js"
+    ],
+    "testEnvironment": "jsdom",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "\\\\node_modules\\\\"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleNameMapper": {
+      "^Config$": "<rootDir>/config/config.dev.json",
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "verbose": true
+}

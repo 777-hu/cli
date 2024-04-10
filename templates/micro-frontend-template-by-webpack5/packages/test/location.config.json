@@ -1,0 +1,26 @@
+{
+    "test": {
+        "development": {
+            "href": "http://localhost:12003"
+        },
+        "production": {
+            "href": "/"
+        }
+    },
+    "basic-data-app": {
+        "development": {
+            "href": "http://localhost:12004"
+        },
+        "production": {
+            "href": "/basic-data-app"
+        }
+    },
+    "common-lib": {
+        "development": {
+            "href": "http://localhost:12001"
+        },
+        "production": {
+            "href": "/common-lib"
+        }
+    }
+}

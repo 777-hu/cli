@@ -11,7 +11,7 @@
   "license": "ISC",
   "type": "module",
   "bin": {
-    "maomao": "./src/bin/index.js"
+    "maomao": "./src/index.js"
   },
   "dependencies": {
     "@inquirer/prompts": "^4.3.0",

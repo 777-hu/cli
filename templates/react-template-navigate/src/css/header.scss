@@ -1,0 +1,39 @@
+.content-wrapper-header {
+	height: 0.6rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.content-header-title {
+		font-size: 0.22rem;
+		font-weight: 500;
+		color: #171C25;
+	}
+
+	.next-balloon-content {
+		width: 1.24rem;
+		height: 0.44rem;
+		display: flex;
+	}
+
+	.content-header-user {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		.content-header-username {
+			display: inline-block;
+			max-width: 1.5rem;
+			font-size: 0.16rem;
+			font-weight: 500;
+			color: #4C6081;
+			margin-bottom: 0;
+			margin-left: 0.12rem;
+			overflow: hidden;
+			vertical-align: bottom;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+			cursor: pointer;
+		}
+	}
+}

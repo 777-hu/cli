@@ -1,0 +1,4 @@
+MOCK_WEBSITE_DEVICE = 'http://192.168.29.97:8999'
+MOCK_WEBSITE = 'http://192.168.21.46:9300'
+
+module.exports = MOCK_WEBSITE
