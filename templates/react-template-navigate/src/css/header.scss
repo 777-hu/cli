@@ -1,39 +1,67 @@
 .content-wrapper-header {
-	height: 0.6rem;
+	// height: 0.6rem;
+	height: 84px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
 	.content-header-title {
-		font-size: 0.22rem;
+		// font-size: 0.22rem;
+		font-size: 22px;
 		font-weight: 500;
 		color: #171C25;
 	}
 
 	.next-balloon-content {
-		width: 1.24rem;
-		height: 0.44rem;
+		// width: 1.24rem;
+		// height: 0.44rem;
+		width: 124px;
+		height: 44px;
 		display: flex;
 	}
 
 	.content-header-user {
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		
+
+		&:hover {
+			
+			background: rgba(0, 0, 0, 0.06);
+		}
+
 		.content-header-username {
 			display: inline-block;
-			max-width: 1.5rem;
-			font-size: 0.16rem;
+			// max-width: 1.5rem;
+			// font-size: 0.16rem;
+			max-width: 150px;
+			font-size: 16px;
 			font-weight: 500;
-			color: #4C6081;
+			//color: #4C6081;
 			margin-bottom: 0;
-			margin-left: 0.12rem;
+			//margin-left: 0.12rem;
+			margin-left: 12px;
 			overflow: hidden;
 			vertical-align: bottom;
 			text-overflow:ellipsis;
 			white-space: nowrap;
 			cursor: pointer;
 		}
+	}
+}
+
+.log-out {
+	display: flex;
+	gap: 10px;
+	margin-top: 10px;
+	padding: 6px 0;
+	border-radius: 5px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #F0F0F0;
 	}
 }

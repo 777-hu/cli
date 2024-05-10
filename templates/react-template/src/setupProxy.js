@@ -1,26 +1,22 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
+const PROXY_IP = require("./proxyIp");
 
 module.exports = function (app) {
-  app.use(
-		"",
-		createProxyMiddleware({
-		target: "ip",
-		changeOrigin: true,
-		logLevel: "debug",
-		pathRewrite: {
-				"": "",
+	app.use(
+		createProxyMiddleware("/api/",{
+			target: `http://${PROXY_IP}/`,
+			changeOrigin: true,
+			ws: false,
+			logLevel: "debug",
+			pathRewrite: {
+				"/api/": "",
 			},
+		}),
+		createProxyMiddleware("/layer-smart-warehouse/register",{
+			target: `ws://${PROXY_IP}`,
+			changeOrigin: true,
+			ws: true,
+			logLevel: "debug",
 		})
-  );
-  // app.use(
-  //   '/mock/112/',
-  // 	createProxyMiddleware({
-  // 		target: 'http://192.168.31.33:9100/',
-  //     changeOrigin: true,
-  //     logLevel: 'debug',
-  //     pathRewrite: {
-  //       "^/mock/112/":"",
-  //     },
-  // 	}),
-  // )
+	);
 };

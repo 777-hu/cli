@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import FirstNavigation from './component/FirstNavigation'
-import SecondaryNavigation from './component/SecondaryNavigation'
-import Header from './component/Header';
+import FirstNavigation from './pages/wrapper/FirstNavigation'
+import SecondaryNavigation from './pages/wrapper/SecondaryNavigation'
+import Header from './pages/wrapper/Header';
 import SideBarConstants from './constants/SideBarConstants'
 import './css/wrapper.scss';
 import { useLocation, useNavigate, useOutlet } from 'react-router-dom';
@@ -27,12 +27,12 @@ const Wrapper = (props) => {
 	const pathname = location.pathname;
 
 	useEffect(() => {
-		// redirectToLogin();
-	}, [userId]);
+		matchCurrentNavBar();
+	}, [])
 
 	useEffect(() => {
-		matchCurrentNavBar();
-	}, [sideBarData]);
+		// redirectToLogin();
+	}, [userId, pathname]);
 	/**
 	 * @description: 选中一级菜单 
 	 * @param {*} currentKey
@@ -53,8 +53,14 @@ const Wrapper = (props) => {
 	 */
 	const onSideBarSelect = (item) => {
 		console.log('item', item);
-		setSelectedSecondNavBar(item.key)
+		const { value, label } = item.item.props;
+		navigate(value);
+		setSelectedSecondNavBar({
+		  path: value,
+		  name: label,
+		});
 	}
+
 	const handleSideBarList = (data) => {
 		let list = [];
 		if (Array.isArray(data)) {
@@ -70,9 +76,19 @@ const Wrapper = (props) => {
 	}
 
 	const redirectToLogin = () => {
-		if (!isAuthenticated()) {
-			navigate('/login');
-			message.error('登录信息已过期，请重新登录！');
+		 if (!isAuthenticated()) {
+			message.error("登录信息已过期，请重新登录！");
+			navigate("/login");
+		} else {
+			if (pathname == "/") {
+				onNavSelect("/entryTicket");
+			}
+			if (pathname == "/messageCenter") {
+				setSelectedSecondNavBar({});
+				setSelectedNavBar("");
+				setCurrentSideBarData([]);
+				setBarName("消息中心");
+			}
 		}
 	};
 	
@@ -89,12 +105,19 @@ const Wrapper = (props) => {
 		if (Array.isArray(sideBarData)) {
 			sideBarData.forEach((item) => {
 				let sideBarList = handleSideBarList(item.children);
-				sideBarList.forEach((value) => {
-				if (pathname.includes(value.path)) {
-					currentNavPath = item.path;
+				if(sideBarList.length === 0) {
+				  
+					if(pathname.includes(item.path)) {
+						currentNavPath = item.path;
+					}
+					return;
 				}
-				})
-			})
+				sideBarList.forEach((value) => {
+					if (pathname.includes(value.path)) {
+						currentNavPath = item.path;
+					}
+				});
+			});
 		}
 		onNavSelect(currentNavPath);
 	}
@@ -105,11 +128,13 @@ const Wrapper = (props) => {
 	 * @return {*}
 	 */
 	const handleNavSelect = (currentKey) => {
-		const currentSideBarDataData = sideBarData.find((item) => item.path === currentKey);
-		if(currentSideBarDataData?.children) {
+		const currentSideBarDataData = sideBarData.find(
+			(item) => item.path === currentKey
+		);
+		if (currentSideBarDataData?.children) {
 			handleDefaultSideBar(currentSideBarDataData?.children);
 		} else {
-			navigate(currentKey)
+			navigate(currentKey);
 		}
 		setCurrentSideBarData(currentSideBarDataData);
 	}
@@ -126,7 +151,7 @@ const Wrapper = (props) => {
 			current = list[0];
 		} else {
 			current = list.find((item) => {
-				return pathname.includes(item.path);
+				return pathname === item.path;
 			});
 			if (!current) {
 				current = list[0]
@@ -146,11 +171,15 @@ const Wrapper = (props) => {
 	return (
 		<div className='Navigation'>
 			<div className='first-nav-bar'>
-				<img className='first-nav-logo' src="https://tmidevoss.oss-cn-shanghai.aliyuncs.com/images/tmi-material/images/tmirob-logo144.png" alt="" />
+				<img 
+					className='first-nav-logo' 
+					src="https://tmidevoss.oss-cn-shanghai.aliyuncs.com/images/tmi-material/images/tmirob-logo144.png" 
+					alt="" 
+				/>
 				<FirstNavigation 
-				sideBarData={sideBarData} 
-				onNavSelect={onNavSelect}
-				selectedNavBar={selectedNavBar}
+					sideBarData={sideBarData} 
+					onNavSelect={onNavSelect}
+					selectedNavBar={selectedNavBar}
 				/>
 			</div>
 			{
@@ -158,17 +187,23 @@ const Wrapper = (props) => {
 				? 
 				(
 					<div className='second-nav-bar'>
-					<p className='second-nav-bar-title'>{currentSideBarData.name}</p>
-					<SecondaryNavigation
-						selectedSecondNavBar={selectedSecondNavBar}
-						currentSideBarData={currentSideBarData} 
-						onSideBarSelect={onSideBarSelect}
-					/>
+						<p className='second-nav-bar-title'>{currentSideBarData.name}</p>
+						<SecondaryNavigation
+							selectedSecondNavBar={selectedSecondNavBar}
+							currentSideBarData={currentSideBarData} 
+							onSideBarSelect={onSideBarSelect}
+						/>
 					</div>
 				) : null
-				}
+			}
 			<div className='content-wrapper'>
-				<Header barName={barName} userName={userName} logout={logout} selectedSecondNavBar={selectedSecondNavBar}/>
+				<Header 
+					barName={barName}
+					userName={userName}
+					logout={logout}
+					currentSideBarData={currentSideBarData}
+					selectedSecondNavBar={selectedSecondNavBar}
+				/>
 				{outlet}
 			</div>
 		</div>

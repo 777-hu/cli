@@ -1,0 +1,71 @@
+.login{
+    position: relative;
+    height: 100vh;
+
+    .system-label{
+      position: absolute;
+      line-height: 5vw;
+      top: 3vh;
+      left: 4.5vw;
+      color: #fff;
+      font-weight: 600;
+      &::before{
+        display: block;
+        background: #fff;
+        width: 12vw;
+        height: 10px;
+        content: '';
+        margin-bottom: 3vh;
+      }
+      &::after{
+        display: block;
+        background: #fff;
+        width: 18vw;
+        height: 10px;
+        content: '';
+        margin-top: 3vh;
+      }
+    }
+
+    &-content{
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      // width: 3rem;
+      transform: translate(0,-50%);
+      width: 5.7rem;
+      // height: 7rem;
+      background: #FFFFFF;
+      box-shadow: 0.01rem 0.02rem 0.1rem 0px rgba(77, 95, 129, 0.3);
+      border-radius: 0.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding-top: 1rem;
+      box-sizing: border-box;
+
+      &-form{
+        width: 60%;
+        height: 50%;
+      }
+
+      &-formItem {
+        width: 3.60rem;
+      }
+
+      &-btn {
+        width: 3.6rem;
+        height: 0.58rem;
+        border-radius: 0.08rem;
+        color: #FFF;
+        text-align: center;
+        font-family: PingFang SC;
+        font-size: 0.24rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 0.32rem;
+        margin-top: 1rem;
+      }
+    }
+  }

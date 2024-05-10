@@ -53,7 +53,7 @@ const makeDirectory = async (name, template, options) => {
 		await fs.mkdirsSync(targetDir);
 		console.log( chalk.bold.green("🚀 文件夹创建成功"));
 		const destUrl = path.join(path.resolve(__dirname, '../../../../templates'), template)
-		handleDirectory(name, destUrl, targetDir)
+		handleDirectory(destUrl, targetDir, name)
 	} catch (err) {
 		console.error(chalk.bold.bgRed('文件夹创建失败:'), err);
 	}
@@ -96,7 +96,7 @@ export const createApp = async (name, options) => {
 }
 
 // 复制模板项目代码
-function handleDirectory(name, srcDirPath, destDirPath) {
+function handleDirectory(srcDirPath, destDirPath, name) {
     fs.readdir(srcDirPath, (err, files) => {
         if (err) {
             console.error('Error reading directory:', err);
@@ -137,11 +137,13 @@ function handleDirectory(name, srcDirPath, destDirPath) {
                             console.error('Error rendering template:', error);
                         });
                 } else if (stats.isDirectory()) {
+                    console.log('stats.isDirectory()', stats.isDirectory())
                     if(file === 'node_modules') {
                         return
                     }
                     // If it's a directory, create the directory and recursively handle its contents
                     const newDirPath = path.join(destDirPath, file);
+                    console.log('newDirPath', newDirPath)
                     fs.mkdirSync(newDirPath);
                     handleDirectory(srcFilePath, newDirPath);
                 } else {

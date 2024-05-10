@@ -1,0 +1,124 @@
+.home {
+    width: 19.2rem;
+    height: 10.8rem;
+    background-image: url('../../public/images/homebg.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    &-header {
+        width: 19.2rem;
+        height: 1.1rem;
+        background-color: rgb(255, 255, 255, 0.4);
+        backdrop-filter: blur(0.1359rem);
+        padding: 0.3rem 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        align-items: center;
+
+        &-info {
+            // width: 2.72rem;
+            height: 0.46rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-title {
+            color: #171C25;
+            font-family: PingFang SC;
+            font-size: 0.36rem;
+            font-weight: 600;
+        }
+
+        &-username {
+            color: #3E4C5D;
+            font-family: PingFang SC;
+            font-size: 0.24rem;
+            font-weight: 400;
+            margin-right: 0.2rem;
+        }
+
+        &-operate {
+            width: 1.32rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-operate:hover {
+            cursor: pointer;
+        }
+
+        &-img {
+            width: 0.28rem;
+            height: 0.28rem;
+        }
+
+        &-quit {
+            color: rgba(0, 0, 0, 0.88);
+            font-size: 0.24rem;
+        }
+    }
+
+    &-content {
+        width: 18.4rem;
+        height: 8.9rem;
+        border-radius: 0.2rem;
+        background: #FFF;
+        margin: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 1.27rem 0.9rem;
+        box-sizing: border-box;
+
+        &-put, &-take, &-history {
+            width: 5rem;
+            height: 6.36rem;
+            border-radius: 20px;
+            box-shadow: 0px 2px 10px 0px rgba(85, 132, 255, 0.60);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0.5rem 0.68rem;
+            box-sizing: border-box;
+        }
+
+        &-put {
+            background: #F3F8FF;
+        }
+
+        &-take {
+            background: #EEF9FF;
+        }
+
+        &-history {
+            background: #F6F5FF;
+        }
+
+        &-put:hover, &-take:hover, &-history:hover {
+            cursor: pointer;
+        }
+
+        &-img {
+            width: 4rem;
+            height: 4rem;
+        }
+
+        &-title {
+            color: #0062FF;
+            font-family: Alibaba PuHuiTi 2.0;
+            font-size: 0.6rem;
+            font-weight: 500;
+        }
+
+        &-tips {
+            color: #4C6081;
+            text-align: center;
+            font-family: PingFang SC;
+            font-size: 0.24rem;
+            font-weight: 400;
+        }
+    }
+}

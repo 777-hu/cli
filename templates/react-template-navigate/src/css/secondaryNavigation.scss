@@ -1,15 +1,40 @@
 .second-nav-bar {
+    height: 100%;
     background-color: #fff;
 
     .second-nav-bar-title {
-        font-size: 0.2rem;
+        font-size: 22px;
         font-weight: 500;
-        line-height: 0.28rem;
-        color: rgba(0, 0, 0, 0.65);
-        margin: 0.32rem 0.2rem;
+        color: #4C6081;
+        margin: 32px 20px;
     }
 
     .side-bar {
-        width: 1.28rem; 
+        width: 128px;
+    }
+
+    .second-bar-list {
+        height: calc(100vh - 0.48rem);
+        overflow: auto;
+        margin-bottom: 0.3rem;
+    }
+
+    .second-menu-list {
+        margin-bottom: 0.6rem;
+    }
+
+    .ant-menu-item{
+        padding-inline: 16px !important;
+        border-radius: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .ant-menu-light .ant-menu-item-selected {
+        border-right: 2px solid #0062FF;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0;
     }
 }

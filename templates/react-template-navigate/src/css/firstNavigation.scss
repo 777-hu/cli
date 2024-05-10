@@ -1,38 +1,48 @@
 .firstNavigation-wrapper {
-	width: 1.04rem;
+	// width: 1.04rem;
+    width: 104px;
     background-color: #0062FF;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    font-size: 0.14rem;
-	
+    // font-size: 0.14rem;
+	font-size: 14px;
 	.navigation-icon-wrapper {
         // width: 56px;
         // height: 56px;
-        font-size: 0.14rem;
+        //font-size: 0.14rem;
+        font-size: 14px;
         display: flex;
         flex-direction: column;
         align-items: center;
         color: #FFFFFF;
 
         .navigation-logo {
-            width: 0.4rem;
-            height: 0.4rem;
+            // width: 0.4rem;
+            // height: 0.4rem;
+            width: 40px;
+            height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 0.24rem;
+            margin-top: 24px;
         }
         .navigation-icon {
-            width: 0.56rem;
-            height: 0.56rem;
+            cursor: pointer;
+            // width: 0.56rem;
+            // height: 0.56rem;
+            width:56px;
+            height: 56px;
             display: flex;
             justify-content: center;
             align-items: center;
-            line-height: 0.56rem;
-            border-radius: 0.12rem;
-            margin-top: 0.12rem;
+            // line-height: 0.56rem;
+            // border-radius: 0.12rem;
+            // margin-top: 0.12rem;
+            line-height: 56px;
+            border-radius: 12px;
+            margin-top: 12px;
             &:hover {
                 background: rgba(255, 255, 255, .3);
             }

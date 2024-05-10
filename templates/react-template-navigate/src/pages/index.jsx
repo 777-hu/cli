@@ -10,7 +10,7 @@ function Pages() {
 		});
 	}, [])
 	return (
-		<div>
+		<div className='content'>
 			Pages
 		</div>
 	);

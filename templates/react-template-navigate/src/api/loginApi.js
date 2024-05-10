@@ -2,7 +2,7 @@ import Config from "../config/config.js";
 
 import { getApi, postApi } from "../utils/request.js";
 
-export default class LoginApi {
+export default class loginApi {
   static requestUrl = `${Config.serverUrl}`;
 
   static login(body) {
