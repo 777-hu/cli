@@ -33,23 +33,23 @@
 		}
 	}
 
-	.second-nav-bar {
-		background-color: #fff;
+	// .second-nav-bar {
+	// 	background-color: #fff;
 	
-		.second-nav-bar-title {
-			// font-size: 0.21rem;
-			font-size: 22px;
-			font-weight: 500;
-			color: #4C6081;
-			// margin: 0.32rem 0.2rem;
-			margin: 32px 20px;
-		}
+	// 	.second-nav-bar-title {
+	// 		// font-size: 0.21rem;
+	// 		font-size: 22px;
+	// 		font-weight: 500;
+	// 		color: #4C6081;
+	// 		// margin: 0.32rem 0.2rem;
+	// 		margin: 32px 20px;
+	// 	}
 	
-		.side-bar {
-			// width: 1.28rem;
-			width: 128px;
-		}
-	}
+	// 	.side-bar {
+	// 		// width: 1.28rem;
+	// 		width: 128px;
+	// 	}
+	// }
 
 	.content-wrapper {
 		flex: 1;
@@ -70,13 +70,12 @@
 			border-radius: 0.1rem;
 			box-sizing: border-box;	
 			position: relative;
-
+			
 			.content-tabs{
 				font-weight: 500;
 				font-size: 20px;
 				color: #1D2129;
 			}
-
 			.common-form-header {
 				height: 0.64rem;
 				padding: 0.18rem 0.24rem;
@@ -233,7 +232,7 @@
 			}
 
 			.ant-tabs-nav-list {
-
+		
 				&:first-child {
 					margin-left: 0.24rem;
 				}
@@ -241,7 +240,6 @@
 		}
 	}
 
-	
 }
 
 .mr-8 {

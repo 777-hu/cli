@@ -5,8 +5,8 @@ import {
 import "dayjs/locale/zh-cn";
 import locale from "antd/locale/zh_CN";
 import { ConfigProvider, App as AntdApp } from "antd";
-// import { Provider } from 'react-redux';
-// import configureStore from "../src/redux/store/configureStore";
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import Pages from './pages';
 import NotFound from './pages/NotFound';
 import Wrapper from './Wrapper';
@@ -15,9 +15,8 @@ import { routerConfig } from './constants/SideBarConstants'
 import { Suspense } from 'react';
 
 function App() {
-	// const store=configureStore()
 	return (
-		// <Provider store={store}>
+		<Provider store={store}>
 			<ConfigProvider locale={locale}>
 				<AntdApp >
 					<Router>
@@ -36,7 +35,7 @@ function App() {
 					</Router>
 				</AntdApp>
 			</ConfigProvider>
-		// </Provider>
+		</Provider>
 	)
 }
 

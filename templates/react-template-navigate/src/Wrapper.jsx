@@ -14,8 +14,8 @@ const Wrapper = (props) => {
 	const outlet = useOutlet();
 	const userId = getUserId();
 	const userName = getUsername();
-	let location = useLocation();
-	let navigate = useNavigate()
+	const location = useLocation();
+	const navigate = useNavigate();
 	const { message } = App.useApp()
 	const [barName, setBarName] = useState('')
 	// 选中的一级导航
@@ -33,6 +33,37 @@ const Wrapper = (props) => {
 	useEffect(() => {
 		// redirectToLogin();
 	}, [userId, pathname]);
+
+	/**
+	 * @description: 刷新页面后根据选中二级菜单 path 匹配选中一级菜单
+	 * @param {*}
+	 * @return {*}
+	 */
+	const matchCurrentNavBar = () => {
+		if (pathname === '/') {
+			return
+		}
+		let currentNavPath = '';
+		if (Array.isArray(sideBarData)) {
+			sideBarData.forEach((item) => {
+				let sideBarList = handleSideBarList(item.children);
+				if(sideBarList.length === 0) {
+					if(pathname.includes(item.path)) {
+						currentNavPath = item.path;
+					}
+					return;
+				}
+				sideBarList.forEach((value) => {
+					if (pathname.includes(value.path)) {
+						currentNavPath = item.path;
+					}
+				});
+			});
+		}
+		console.log('currentNavPath', currentNavPath)
+		onNavSelect(currentNavPath);
+	}
+
 	/**
 	 * @description: 选中一级菜单 
 	 * @param {*} currentKey
@@ -40,10 +71,53 @@ const Wrapper = (props) => {
 	 */
 	const onNavSelect = (key, value) => {
 		const selectedKey = key || pathname
+		console.log('selectedKey', selectedKey)
 		const barName = sideBarData.find(item => selectedKey.includes(item.path))
+		console.log('barName', barName)
 		setBarName(barName?.name)
 		setSelectedNavBar(selectedKey);
 		handleNavSelect(selectedKey);
+	}
+
+	/**
+	 * @description: 选中一级菜单后，处理二级菜单数据
+	 * @param {*} currentKey
+	 * @return {*}
+	 */
+	const handleNavSelect = (currentKey) => {
+
+		const currentSideBarDataData = sideBarData.find(
+			(item) => item.path === currentKey
+		);
+		if (currentSideBarDataData?.children) {
+			handleDefaultSideBar(currentSideBarDataData?.children);
+		} else {
+			navigate(currentKey);
+		}
+		console.log(currentSideBarDataData)
+		setCurrentSideBarData(currentSideBarDataData);
+	}
+
+	/**
+	 * @description: 选中一级菜单后，默认选择二级菜单第一项。页面刷新后匹配当前选中二级菜单。
+	 * @param {*} data
+	 * @return {*}
+	 */
+	const handleDefaultSideBar = (data) => {
+		let current = {};
+		const list = handleSideBarList(data);
+		if (pathname === '/' && Array.isArray(list) && list.length > 0) {
+			current = list[0];
+		} else {
+			current = list.find((item) => {
+				return pathname.includes(item.path);
+			});
+			if (!current) {
+				current = list[0]
+			}
+		}
+		navigate(current?.path);
+		setSelectedSecondNavBar(current);
 	}
 
 	/**
@@ -56,11 +130,12 @@ const Wrapper = (props) => {
 		const { value, label } = item.item.props;
 		navigate(value);
 		setSelectedSecondNavBar({
-		  path: value,
-		  name: label,
+			path: value,
+			name: label,
 		});
 	}
 
+	// 展开数组和对象
 	const handleSideBarList = (data) => {
 		let list = [];
 		if (Array.isArray(data)) {
@@ -91,75 +166,6 @@ const Wrapper = (props) => {
 			}
 		}
 	};
-	
-	/**
-	 * @description: 刷新页面后根据选中二级菜单 path 匹配选中一级菜单
-	 * @param {*}
-	 * @return {*}
-	 */
-	const matchCurrentNavBar = () => {
-		if (pathname === '/') {
-			return
-		}
-		let currentNavPath = '';
-		if (Array.isArray(sideBarData)) {
-			sideBarData.forEach((item) => {
-				let sideBarList = handleSideBarList(item.children);
-				if(sideBarList.length === 0) {
-				  
-					if(pathname.includes(item.path)) {
-						currentNavPath = item.path;
-					}
-					return;
-				}
-				sideBarList.forEach((value) => {
-					if (pathname.includes(value.path)) {
-						currentNavPath = item.path;
-					}
-				});
-			});
-		}
-		onNavSelect(currentNavPath);
-	}
-
-	/**
-	 * @description: 选中一级菜单后，处理二级菜单数据
-	 * @param {*} currentKey
-	 * @return {*}
-	 */
-	const handleNavSelect = (currentKey) => {
-		const currentSideBarDataData = sideBarData.find(
-			(item) => item.path === currentKey
-		);
-		if (currentSideBarDataData?.children) {
-			handleDefaultSideBar(currentSideBarDataData?.children);
-		} else {
-			navigate(currentKey);
-		}
-		setCurrentSideBarData(currentSideBarDataData);
-	}
-
-	/**
-	 * @description: 选中一级菜单后，默认选择二级菜单第一项。页面刷新后匹配当前选中二级菜单。
-	 * @param {*} data
-	 * @return {*}
-	 */
-	const handleDefaultSideBar = (data) => {
-		let current = {};
-		const list = handleSideBarList(data);
-		if (pathname === '/' && Array.isArray(list) && list.length > 0) {
-			current = list[0];
-		} else {
-			current = list.find((item) => {
-				return pathname === item.path;
-			});
-			if (!current) {
-				current = list[0]
-			}
-		}
-		navigate(current?.path);
-		setSelectedSecondNavBar(current);
-	}
 
 	// 退出登录
 	const logout = () => {

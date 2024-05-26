@@ -42,7 +42,7 @@ function App() {
 							<Route path='/unauthorized' element={<NotFound />} />
  							<Route path="*" element={<Navigate to="/unauthorized"/>} />
 							<Route path="/" element={<Wrapper />}>
-							<Route path="" element={<Navigate to="/home"/>} />
+								<Route path="" element={<Navigate to="/home"/>} />
 								<Route path="home" element={<PrivateRoute roles={['ADMIN', 'DEVELOPER']} comp={<Home />} />} />
 								{/* 出入库历史记录 */}
 								<Route path="test" element={<PrivateRoute roles={['WAREHOUSE_MANAGER', 'DEVELOPER']} comp={<TestPage />} />}>

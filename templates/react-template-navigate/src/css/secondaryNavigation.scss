@@ -3,10 +3,13 @@
     background-color: #fff;
 
     .second-nav-bar-title {
+        width: 128px;
+        box-sizing: border-box;
         font-size: 22px;
         font-weight: 500;
         color: #4C6081;
-        margin: 32px 20px;
+        padding: 32px 20px;
+        text-align: center;
     }
 
     .side-bar {

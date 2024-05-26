@@ -36,10 +36,11 @@ return (
 		</p>
 		<div
 			style={{
-			display: "flex",
-			justifyContent: "space-between",
-			alignItems: "center",
-			width: "100px",
+				display: "flex",
+				justifyContent: "flex-end",
+				alignItems: "center",
+				width: "100px",
+				gap: 20,
 			}}
 		>
 			{/* <MessageBox /> */}

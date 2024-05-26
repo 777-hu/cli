@@ -8,19 +8,17 @@ const SecondaryNavigation = (props) => {
 	const {currentSideBarData, onSideBarSelect, selectedSecondNavBar} = props;
 
 	const handleItem = (data) => {
-		const item = data.map((item) => {
-			const { name, path } = item;
-			return (
-				<Item
-					key={path}
-					value={path}
-					label={name}
-				>
-					{name}
-				</Item>
-			)
+		const items = data.map((item) => {
+			const { name, path, type } = item;
+			if(type === 'route') return
+			return ({
+				...item,
+				key: path,
+				value: path,
+				label: name,
+			})
 		});
-		return item;
+		return items;
 	}
 
 	const renderSideBar = (data) => {
@@ -32,12 +30,13 @@ const SecondaryNavigation = (props) => {
 
 			const nav = Object.keys(children).map((key) => {
 				const value = children[key];
-				const item = (
-					<ItemGroup label={key} title={key} key={key}>
-						{handleItem(value)}
-					</ItemGroup>
-				);
-				return item;
+				return {
+					label: key,
+					title: key,
+					key: key,
+					type: 'group',
+					children: handleItem(value),
+				}
 			})
 			return nav;
 		}
@@ -51,11 +50,8 @@ const SecondaryNavigation = (props) => {
 				triggerSubMenuAction="click"
 				onSelect={onSideBarSelect}
 				selectedKeys={selectedSecondNavBar.path}
-			>
-				{
-					renderSideBar(currentSideBarData)
-				}
-			</Menu>
+				items={renderSideBar(currentSideBarData)}
+			/>
 		</div>
 	)
 }
