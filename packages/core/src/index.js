@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-// const {Command} = require('commander')
-// const inquirer = require('inquirer')
 import { Command } from 'commander'
 import { input, select, Separator, checkbox, confirm, expand, rawlist } from '@inquirer/prompts';
 import figlet from 'figlet' 
@@ -15,6 +13,7 @@ import inquirer from 'inquirer'
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { createApp } from './utils/createApp.js';
+import { createComponent } from './utils/createComponent.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,7 +22,7 @@ const program = new Command();
 
 program
 	.version(chalk.greenBright(JSON.parse(
-		readFileSync(join(__dirname, '../package.json')).toString(),
+		readFileSync(join(__dirname, '../../../package.json')).toString(),
 	).version))
 	.description("Create a directory for your project files")
 	.option("-d, --debug", "是否开启调试模式", false)
@@ -40,10 +39,10 @@ program
 	})
 
 program
-	.command('ui')
+	.command('addComponent')
 	.description('Generate block template')
-	.action((name, options) => {
-		console.log('ui', options)
+	.action((options) => {
+		createComponent(options)
 	})
 
 program.parse(process.argv);

@@ -1,0 +1,82 @@
+.progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_container {
+        width: 2.196vw;
+        height: 1.161vw;
+        float: left;
+        position: relative;
+        margin-bottom: 0.104vw;
+    }
+
+    &_powerImg {
+        width: 2.196vw;
+        height: 1.161vw;
+    }
+
+    &_conWarning {
+        border: 0.104vw solid #FEAC3C;
+    }
+
+    &_conEmergency {
+        border: 0.104vw solid red;
+    }
+
+    &_power {
+        width: 1.5vw;
+        height: 0.7vw;
+        background: #F7F8FA;
+        position: absolute;
+        top: 0.23vw;
+        left: 0.3vw;
+
+        &_progress {
+            height: 100%;
+            background-color: #31DC72;
+        }
+
+        &_emergency {
+            background-color: red;
+        }
+
+        &_warning {
+            background-color: #FEAC3C;
+        }
+    
+        &_lightIcon {
+            height: 1.3vw;
+            width: 0.8vw;
+            position: absolute;
+            top: -0.24vw;
+            left: 50%;
+            margin-left: -0.35vw;
+        }
+    }
+
+    &_iconWarning {
+        background-color: #FEAC3C;
+    }
+
+    &_iconEmergency {
+        background-color: red;
+    }
+
+    &_progressNum {
+        width: 1.875vw;
+        height: 0.982vw;
+        font-size: 0.833vw;
+        color: #31DC72;
+        margin-left: 0.1vw;
+        margin-top: 0.063vw;
+    }
+
+    &_numEmergency {
+        color: red;
+    }
+
+    &_numWarning {
+        color: #FEAC3C;
+    }
+}

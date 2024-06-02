@@ -1,0 +1,113 @@
+.cardList {
+    height: 100%;
+
+    &_box {
+        width: 100%;
+        background-color: #fff;
+        box-sizing: border-box;
+        border: 1px solid #E5E6EB;
+        border-radius: 0.741vw;
+        margin-bottom: 1.25vw;
+
+        &_msg {
+            height: 2.813vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 1.25vw;
+            margin-right: 1.458vw;
+        }
+
+        &_babyMsg {
+            font-weight: 400;
+            font-size: 0.833vw;
+
+            span {
+                margin-right: 1.667vw;
+            }
+        }
+
+        .next-btn-text.next-medium {
+            font-weight: 400;
+            font-size: 0.833vw;
+        }
+
+        &_line {
+            border-top: 1px solid #E5E6EB;
+        }
+
+        &_footer {
+            padding-left: 0.625vw;
+            padding-top: 1.667vw;
+            padding-bottom: 0.625vw;
+            padding-right: 1.25vw;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &_babyName {
+            width: 11.458vw;
+            display: flex;
+            align-items: center;
+            margin-left: 0.625vw;
+            margin-bottom: 1.042vw;
+            font-weight: 400;
+            font-size: 1.042vw;
+            color: #1D2129;
+        }
+
+        &_babyCompleted {
+            width: 1.458vw;
+            height: 1.458vw;
+            background: #E8F3FF;
+            border-radius: 50%;
+            line-height: 1.458vw;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.833vw;
+            color: #4E5969;
+        }
+
+        &_babyInprogress {
+            width: 1.458vw;
+            height: 1.458vw;
+            background: #0062FF;
+            border-radius: 50%;
+            line-height: 1.458vw;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.833vw;
+            color: #fff;
+        }
+
+        &_babyIndex {
+            width: 1.458vw;
+            height: 1.458vw;
+            background-color: #F2F3F5;
+            border-radius: 50%;
+            line-height: 1.458vw;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.833vw;
+            color: #4E5969;
+        }
+
+        &_rightImg {
+            width: 0.662vw;
+            height: 0.467vw;
+        }
+
+        &_patientName {
+            width: 5.729vw;
+            height: 1.458vw;
+            line-height: 1.458vw;
+            margin-left: 0.625vw;
+        }
+
+        &_nextLine {
+            width: 3.542vw;
+            border-top: 1px solid #E5E6EB;
+            margin-left: 0.625vw;
+        }
+    }
+}

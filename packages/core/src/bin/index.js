@@ -6,7 +6,7 @@ import { Command } from 'commander'
 import { input, select, Separator, checkbox, confirm, expand, rawlist } from '@inquirer/prompts';
 import figlet from 'figlet' 
 import chalk from 'chalk' 
-import path from 'path';
+import path, { join } from 'path';
 import ora from 'ora';
 import fs, { readFileSync } from 'fs';
 import ejs, { clearCache } from 'ejs';
@@ -14,109 +14,120 @@ import inquirer from 'inquirer'
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { createApp } from './utils/createApp.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const program = new Command();
+
 program
-.version(chalk.greenBright(JSON.parse(
-	readFileSync(join(__dirname, target)).toString(),
-).version))
-.arguments("<project-name>")
-.description("Create a directory for your project files")
-.option("-f, --force", "Overwrite target directory if it exists")
-.option("--dev", "Use development mode")
-.action((name, options) => {
-// createApp(name, options);
-console.log('name, options',name, options)
-})
+	.version(chalk.greenBright(JSON.parse(
+		readFileSync(join(__dirname, '../package.json')).toString(),
+	).version))
+	.description("Create a directory for your project files")
+	.option("-d, --debug", "是否开启调试模式", false)
+	.option("-f, --force", "Overwrite target directory if it exists", false)
+	.option("--dev", "Use development mode")
+// .option('-p, --port <number>', 'port number', 80)
+// .option('-l, --list <items>', 'comma separated list', commaSeparatedList)
 
-const options = program.opts();
-const sauceStr = options.sauce ? 'sauce' : 'no sauce';
-const cheeseStr = (options.cheese === false) ? 'no cheese' : `${options.cheese} cheese`;
-console.log(`You ordered a pizza with ${sauceStr} and ${cheeseStr}`);
+program
+	.command('create [project-name]')
+	.description('Use create directly to directly select a template for generation.')
+	.action((name, options) => {
+		createApp(name, options)
+	})
 
-const answer = {
-	inputAnswer: await input({ message: 'Enter your name' }),
-	selectAnswer: await select({
-		message: 'Select a package manager',
-		choices: [
-		{
-			name: 'npm',
-			value: 'npm',
-			description: 'npm is the most popular package manager',
-		},
-		{
-			name: 'yarn',
-			value: 'yarn',
-			description: 'yarn is an awesome package manager',
-		},
-		new Separator(),
-		{
-			name: 'jspm',
-			value: 'jspm',
-			disabled: true,
-		},
-		{
-			name: 'pnpm',
-			value: 'pnpm',
-			disabled: '(pnpm is not available)',
-		},
-		],
-	}),
-	checkboxAnswer: await checkbox({
-		message: 'Select a package manager',
-		choices: [
-			{ name: '(1)npm', value: 'npm' },
-			{ name: '(2)yarn', value: 'yarn' },
-			new Separator(),
-			{ name: 'pnpm', value: 'pnpm', disabled: true },
-			{
-			  name: 'pnpm',
-			  value: 'pnpm',
-			  disabled: '(pnpm is not available)',
-			},
-		  ],
-		required: true,
-	}),
-	confirmAnswer: await confirm({ message: 'Continue?' }),
-	Answer: await expand({
-		message: 'Conflict on file.js',
-		default: 'y',
-		expanded: true,
-		choices: [
-		  {
-			key: 'y',
-			name: 'Overwrite',
-			value: 'overwrite',
-		  },
-		  {
-			key: 'a',
-			name: 'Overwrite this one and all next',
-			value: 'overwrite_all',
-		  },
-		  {
-			key: 'd',
-			name: 'Show diff',
-			value: 'diff',
-		  },
-		  {
-			key: 'x',
-			name: 'Abort',
-			value: 'abort',
-		  },
-		],
-	}),
-	rawlistAnswer: await rawlist({
-		message: 'Select a package manager',
-		choices: [
-		  { name: 'npm', value: 'npm' },
-		  { name: 'yarn', value: 'yarn' },
-		  { name: 'pnpm', value: 'pnpm' },
-		],
-	}),
-};
+program
+	.command('ui')
+	.description('Generate block template')
+	.action((name, options) => {
+		console.log('ui', options)
+	})
+
+program.parse(process.argv);
+
+// const answer = {
+// 	inputAnswer: await input({ message: 'Enter your name' }),
+// 	selectAnswer: await select({
+// 		message: 'Select a package manager',
+// 		choices: [
+// 		{
+// 			name: 'npm',
+// 			value: 'npm',
+// 			description: 'npm is the most popular package manager',
+// 		},
+// 		{
+// 			name: 'yarn',
+// 			value: 'yarn',
+// 			description: 'yarn is an awesome package manager',
+// 		},
+// 		new Separator(),
+// 		{
+// 			name: 'jspm',
+// 			value: 'jspm',
+// 			disabled: true,
+// 		},
+// 		{
+// 			name: 'pnpm',
+// 			value: 'pnpm',
+// 			disabled: '(pnpm is not available)',
+// 		},
+// 		],
+// 	}),
+// 	checkboxAnswer: await checkbox({
+// 		message: 'Select a package manager',
+// 		choices: [
+// 			{ name: '(1)npm', value: 'npm' },
+// 			{ name: '(2)yarn', value: 'yarn' },
+// 			new Separator(),
+// 			{ name: 'pnpm', value: 'pnpm', disabled: true },
+// 			{
+// 			  name: 'pnpm',
+// 			  value: 'pnpm',
+// 			  disabled: '(pnpm is not available)',
+// 			},
+// 		  ],
+// 		required: true,
+// 	}),
+// 	confirmAnswer: await confirm({ message: 'Continue?' }),
+// 	Answer: await expand({
+// 		message: 'Conflict on file.js',
+// 		default: 'y',
+// 		expanded: true,
+// 		choices: [
+// 		  {
+// 			key: 'y',
+// 			name: 'Overwrite',
+// 			value: 'overwrite',
+// 		  },
+// 		  {
+// 			key: 'a',
+// 			name: 'Overwrite this one and all next',
+// 			value: 'overwrite_all',
+// 		  },
+// 		  {
+// 			key: 'd',
+// 			name: 'Show diff',
+// 			value: 'diff',
+// 		  },
+// 		  {
+// 			key: 'x',
+// 			name: 'Abort',
+// 			value: 'abort',
+// 		  },
+// 		],
+// 	}),
+// 	rawlistAnswer: await rawlist({
+// 		message: 'Select a package manager',
+// 		choices: [
+// 		  { name: 'npm', value: 'npm' },
+// 		  { name: 'yarn', value: 'yarn' },
+// 		  { name: 'pnpm', value: 'pnpm' },
+// 		],
+// 	}),
+// };
 
 // inquirer.prompt([
 // 	{
@@ -141,7 +152,7 @@ const answer = {
 // }, 5 * 1000);
 
 
-// const destUrl = path.join(path.resolve(__dirname, '../../'), 'template')
+// const destUrl = path.join(path.resolve(__dirname, '../'), 'template')
 // const cwdUrl = process.cwd()
 // console.log('destUrl', destUrl)
 // console.log('cwdUrl', cwdUrl)
@@ -160,13 +171,14 @@ const answer = {
 
 
 
-figlet("Hello World!!", function (err, data) {
-	if (err) {
-	  console.log("Something went wrong...");
-	  console.dir(err);
-	  return;
-	}
-	console.log(data);
-  });
+// figlet("Hello World!!", function (err, data) {
+// 	if (err) {
+// 	  console.log("Something went wrong...");
+// 	  console.dir(err);
+// 	  return;
+// 	}
+// 	console.log(data);
+//   });
 
-console.log('answer', answer)
+
+// .command('install [name]', 'install one or more packages').alias('i')

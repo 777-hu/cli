@@ -1,0 +1,147 @@
+.robotList {
+    padding: 1.667vw 0.365vw 0.417vw 1.615vw;
+    box-sizing: border-box;
+
+    &_box {
+        display: flex;
+        flex-wrap: wrap;
+
+        &_content {
+            height: 21.146vw;
+            background: #fff;
+            box-sizing: border-box;
+            border: 0.052vw solid #E5E6EB;
+            border-radius: 0.625vw;
+            margin-right: 1.25vw;
+            margin-bottom: 1.25vw;
+            position: relative;
+        }
+
+        &_robotStatus {
+            position: absolute;
+            right: 0px;
+            top: 1.563vw;
+            height: 6.354vw;
+            padding: 0.833vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &_status {
+            width: 3.5vw;
+            height: 1.563vw;
+            margin-bottom: 0.885vw;
+        }
+
+        &_powerContainer {
+            display: flex;
+            flex-direction: column;
+            width: 4.167vw;
+            align-items: center;
+        }
+
+        &_robotImg {
+            width: 100%;
+            height: 13.542vw;
+            position: relative;
+        }
+
+        &_robotPic {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &_robotName {
+            height: 7.604vw;
+            box-sizing: border-box;
+            border-radius: 0px 0px 0.625vw 0.625vw;
+            font-size: 1.25vw;
+            text-align: center;
+            line-height: 3.3vw;
+            font-weight: 500;
+        }
+
+        &_robotBusy {
+            border-radius: 0px 0px 0.625vw 0.625vw;
+        }
+
+        &_robotAlias {
+            width: 17.858vw;
+            height: 3.3vw;
+            box-sizing: border-box;
+            font-size: 1.25vw;
+            text-align: center;
+            line-height: 3.3vw;
+            font-weight: 500;
+            margin-left: 0.052vw;
+        }
+
+        .alias {
+            height: 4.2vw;
+        }
+
+        .unexecuted {
+            color: #1D2129;
+        }
+
+        .executed {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #FEAC3C;
+            color: #fff;
+        }
+
+        &_robotBtn {
+            .next-btn.next-medium {
+                width: 8.333vw;
+                height: 2.708vw;
+                font-size: 1.25vw;
+                color: #0062FF;
+                background: #fff;
+                border-radius: 0.313vw;
+                border: 1px solid #0062FF;
+            }
+
+            // .next-btn.next-btn-primary:hover {
+            //     background-color: #0062FF;
+            //     color: #fff;
+            // }
+
+            .next-btn[disabled].next-btn-primary {
+                color: #8BC3FF;
+                border-color: #8BC3FF;
+            }
+
+            .next-btn[disabled].next-btn-primary:hover {
+                color: #8BC3FF;
+                border-color: #8BC3FF;
+                background-color: #fff;
+            }
+        }
+    }
+
+    &_empty {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &_img {
+            width: 10.833vw;
+            height: 14.375vw;
+            margin-bottom: 0.781vw;
+        }
+
+        &_text {
+            font-size: 1.458vw;
+            color: rgb(145, 145, 145);
+        }
+    }
+}

@@ -1,12 +1,44 @@
 {
-  "name": "cli",
-  "version": "1.0.0",
+  "name": "maomao-cli-test",
+  "version": "1.0.12",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "maomao-cli": "./packages/core/src/index.js"
+  },
+  "files": [
+    "packages",
+    "templates",
+    "package.json",
+    "pnpm-workspace.yaml"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "maomao",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@inquirer/prompts": "^4.3.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^20.11.22",
+    "@types/tar": "^6.1.11",
+    "axios": "^1.6.7",
+    "boxen": "^5.1.2",
+    "chalk": "^4.0.0",
+    "commander": "^12.0.0",
+    "ejs": "^3.1.9",
+    "figlet": "^1.7.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^9.2.16",
+    "minimist": "^1.2.8",
+    "ora": "^5.4.1",
+    "tar": "^6.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
 }
