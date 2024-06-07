@@ -68,7 +68,7 @@ export const createComponent = async (options) => {
     // 当前模块文件所在目录的路径
     const __dirname = dirname(__filename);
     // 区块所在文件夹
-    const destUrl = path.join(path.resolve(__dirname, '../../../../blocks'), selectTemplate)
+    const destUrl = path.join(path.resolve(__dirname, '../../../../blocks/src'), selectTemplate)
 
     handleDirectory(destUrl, cwdUrl).then(() => {
         createSuccessInfo(selectTemplate)
