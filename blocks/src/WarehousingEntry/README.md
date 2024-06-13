@@ -7,3 +7,13 @@ import React from 'react'
 import { WarehousingEntry } from 'tmi-material';
 export default () => <WarehousingEntry />
 ```
+
+
+## 配合导航区块使用
+```jsx
+import React from 'react'
+import { WarehousingEntry, TmiNavigate } from 'tmi-material';
+export default () => <TmiNavigate >
+	<WarehousingEntry />
+</TmiNavigate>
+```

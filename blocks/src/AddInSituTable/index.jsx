@@ -231,17 +231,17 @@ const AddInSituTable = ({ value }) => {
 	return (
 		<div className="content">
 			<div className="common-table-header">
-			<div className="common-table-title">原位新增表格</div>
-			<Button
-				className="common-table-button"
-				type="primary"
-				onClick={creact}
-			>
-				<>
-				<PlusOutlined className="mr-8 " />
-				新建
-				</>
-			</Button>
+				<div className="common-table-title">原位新增表格</div>
+				<Button
+					className="common-table-button"
+					type="primary"
+					onClick={creact}
+				>
+					<>
+					<PlusOutlined className="mr-8 " />
+					新建
+					</>
+				</Button>
 			</div>
 			<div className="common-table-wrapper">
 				<div className='common-table-relevance' style={{justifyContent: 'flex-end',}}>

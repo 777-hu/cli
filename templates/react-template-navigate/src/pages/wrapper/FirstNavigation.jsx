@@ -25,6 +25,7 @@ function FirstNavigation(props) {
 		<div className="firstNavigation-wrapper">
 			{
 				sideBarData.map(item => {
+					if(item.type === 'route') return
 					return (
 							<div
 								key={item.name}

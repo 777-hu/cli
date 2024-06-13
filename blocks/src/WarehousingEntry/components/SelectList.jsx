@@ -229,7 +229,7 @@ const SelectList = () => {
           colSpan: col,
         };
       },
-      // render: (operateTime) => <div>{moment(operateTime).format("YYYY-MM-DD HH:mm:ss")}</div>
+      // render: (operateTime) => <div>{dayjs(operateTime).format("YYYY-MM-DD HH:mm:ss")}</div>
     },
     {
       title: '创建人',

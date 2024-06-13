@@ -7,3 +7,6 @@ export { default as RobotInfo } from './RobotInfo';
 export { default as SiteDevice } from './SiteDevice';
 export { default as TableWithPage } from './TableWithPage';
 export { default as TmiLogin } from './TmiLogin';
+export { default as WarehousingEntry } from './WarehousingEntry';
+export { default as MessageBox } from './MessageBox/MessageBox';
+export { default as MessageCenter } from './MessageCenter';

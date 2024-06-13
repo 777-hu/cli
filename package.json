@@ -1,10 +1,10 @@
 {
-  "name": "maomao-cli-test",
+  "name": "taimi-cli",
   "version": "1.0.12",
   "description": "",
   "main": "index.js",
   "bin": {
-    "maomao-cli": "./packages/core/src/index.js"
+    "create-tmi": "./packages/core/src/index.js"
   },
   "files": [
     "packages",

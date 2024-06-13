@@ -244,7 +244,7 @@ const ApplyList = (props) => {
           <div className="select-list-relevance">
             <Form form={searchForm} name="searchForm" onFinish={onFinish}>
               <Row style={{ display: 'flex', justifyContent: 'space-between' }} className="select-list-relevance-row">
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   <Form.Item
                     label="货架类型"
                     name="type"
@@ -287,7 +287,7 @@ const ApplyList = (props) => {
                 </div>
               </Row>
               <Row style={{ display: 'flex', justifyContent: 'space-between' }} className="select-list-relevance-row">
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   <Form.Item label="供应商" name="warehouseId" style={{ marginRight: '0.24rem' }}>
                     <Select allowClear placeholder="请选择" style={{ width: 120 }}>
                       <Select.Option value={1}>仓库1</Select.Option>
@@ -342,7 +342,7 @@ const ApplyList = (props) => {
           <div className="apply-list-relevance">
             <Form form={signForm} name="signForm" onFinish={onFinishSign}>
               <Row className="select-list-relevance-row">
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   <Form.Item
                     label="手术室"
                     name="operationId"

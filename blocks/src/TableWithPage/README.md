@@ -107,3 +107,7 @@ export default () => {
 | pageData  | 分页数据，其中current代表当前页，pageSize表示每页显示的条数，total代表数据条数。                               | Object  | \-    |
 | batch     | 获得批量选择后的数据。                                                                      | Object  | \-    |
 | relevance | 表格上方是否有其他关联操作，默认值为false                                                          | Boolean | false |
+
+
+## TIP
+index.scss文件为通用表格样式提取，如果需要自定义样式，请使用自定义样式覆盖index.scss文件。如果不连同导航样式或脚手架一块使用，可以删除此文件，使用导航和脚手架中通用样式即可

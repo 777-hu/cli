@@ -3,7 +3,7 @@ import React from "react";
 import { Dropdown, Popover, Space } from "antd";
 import { UserOutlined, createFromIconfontCN } from "@ant-design/icons";
 import "../../css/header.scss";
-// import MessageBox from "../messageBox/MessageBox";
+import MessageBox from "../messageBox/MessageBox";
 // import { imageUrl } from "../../constants/Resources";
 
 const CustomIcon = createFromIconfontCN({
@@ -43,7 +43,7 @@ return (
 				gap: 20,
 			}}
 		>
-			{/* <MessageBox /> */}
+			<MessageBox />
 			<Popover
 				placement="bottomRight"
 				closable={false}

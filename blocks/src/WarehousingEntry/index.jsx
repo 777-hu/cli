@@ -20,7 +20,7 @@ export default function WarehousingEntry({ value }) {
     },
   ]
   return (
-    <div className="common-table">
+    <div className="content">
       {/* <div className="common-table-header">
         <div className="common-table-title">
           <LeftOutlined />

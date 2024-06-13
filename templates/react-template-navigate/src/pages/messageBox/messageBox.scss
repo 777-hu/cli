@@ -1,0 +1,166 @@
+.message {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &-content {
+        width: 420px;
+        height: 528px;
+        position: relative;
+
+        &-header {
+            height: 64px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e4e7ed;
+            padding-bottom: 12px;
+            padding-left: 10px;
+        }
+
+        &-center {
+            height: 408px;
+            overflow: auto;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        &-empty {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &-image {
+            width: 200px;
+            height: 300px;
+        }
+
+        &-footer {
+            height: 56px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid #e4e7ed;
+            display: flex;
+            align-items: center;
+        }
+
+        &-read, &-view {
+            width: 50%;
+            height: 32px;
+            color: #0062FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        &-read {
+            border-right: 1px solid #E5E6EB;
+        }
+
+        &-read:hover, &-view:hover {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.06);
+            border-radius: 4px;
+        }
+
+        &-read:active, &-view:active {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+        }
+
+        .allRead {
+            color: #8BC3FF;
+        }
+
+        .allRead:hover{
+            cursor: not-allowed;
+            background-color: #fff;
+        }
+
+        .hover {
+            background-color: #F2F3F5;
+        }
+
+        .read {
+            color: #86909C;
+        }
+
+        &-box {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        &-box:hover {
+            cursor: pointer;
+        }
+
+        &-item {
+            display: flex;
+        }
+
+        &-left {
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+        &-right {
+            width: 100%;
+        }
+
+        &-operate {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #86909C;
+        }
+
+        &-title {
+            font-weight: 500;
+        }
+
+        &-info {
+            font-weight: 400;
+            width: 400px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; /* 定义文本的行数 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &-date {
+            display: flex;
+            align-items: center;
+        }
+
+        &-icon {
+            margin-right: 4px;
+        }
+
+        &-sign:hover {
+            cursor: pointer;
+            color: #000000E0;
+        }
+    }
+}
+
+.message:hover {
+    cursor: pointer;
+    background-color: #0000000F;
+}

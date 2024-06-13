@@ -1,26 +1,71 @@
-.common-table {
-	// width: 100%;
-	height: 100%;
+.content {
+	flex: 1;
+	height: calc(100% - 64px);
 	display: flex;
 	flex-direction: column;
 	background: #FFFFFF;
+	border-radius: 0.1rem;
+	box-sizing: border-box;	
+	position: relative;
+	
+	.content-tabs{
+		font-weight: 500;
+		font-size: 20px;
+		color: #1D2129;
+	}
+	.common-form-header {
+		height: 0.64rem;
+		padding: 0.18rem 0.24rem;
+		border-bottom: 0.01rem solid #E5E6EB;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
 
-	&-header {
+		.common-form-title {
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 0.28rem;
+			color: #1D2129;
+			& > span {
+				margin-left: 0.12rem;
+			}
+		}
+	}
+
+	.common-form-wrapper {
+		display: flex;
+		height: calc(100% - 64px);
+		padding-top: 46px;
+		justify-content: center;
+		// box-sizing: border-box;
+	}
+
+	.common-form-wrapper-many {
+		height: calc(100% - 64px);
+		padding: 46px 40px 0 40px;
+		overflow-y: auto;
+	}
+
+	.common-table-header {
 		height: 64px;
 		padding: 18px 24px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		border-bottom: 1px solid #E5E6EB;
+		box-sizing: border-box;
 
 		.common-table-title {
 			font-weight: 500;
 			font-size: 20px;
-			line-height: 28px;
+			line-height: 0.28rem;
 			color: #1D2129;
 		}
+
 		.common-table-buttons {
 			display: flex;
+			gap: 24px;
+
 			.common-table-button {
 				display: flex;
 				flex-direction: row;
@@ -31,7 +76,6 @@
 				height: 32px;
 				background: #0062FF;
 				border-radius: 4px;
-				margin-left: 24px;
 				font-weight: 400;
 				font-size: 14px;
 				line-height: 22px;
@@ -40,18 +84,19 @@
 		}
 	}
 
-	&-wrapper {
+	.common-table-wrapper {
 		height: calc(100% - 64px);
 		overflow: auto;
-		margin: 24px;
+		margin: 0.24rem;
 
 		.common-table-relevance {
 			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
 			margin-bottom: 16px;
-			width:100%;
-			&-item {
-				height: 32px;
-				margin-right: 8px;
+
+			.common-table-relevance-search {
+				width: 2.64rem;
 			}
 		}
 
@@ -70,24 +115,73 @@
 				cursor: pointer;
 
 				&.cancel {
-					margin-left: 12px;
+					margin-left: 0.12rem;
 				}
 			}
 		}
 
+		.FREE {
+			color: #0FC6C2;
+		}
+
+		.OCCUPY {
+			color: #FF7D00;
+		}
+
+		.ERROR {
+			color: #F53F3F;
+		}
+
 	}
 
-	.next-pagination {
+	.common-table-button-absolute {
 		display: flex;
-		justify-content: end;
-		margin-top: 24px;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 5px 16px;
+		// width: 82px;
+		height: 32px;
+		background: #0062FF;
+		border-radius: 4px;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		color: #FFFFFF;
+		position: absolute;
+		right: 0.24rem;
+		top: 0.16rem;
+		z-index: 999;
 	}
 
+	.common-table-button-absolute-no-color {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 5px 16px;
+		// width: 0.82rem;
+		height: 32px;
+		//background: #0062FF;
+		border-radius: 4px;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		//color: #FFFFFF;
+		// position: absolute;
+		// right: 0.24rem;
+		// top: 0.16rem;
+		// z-index: 999;
+	}
+
+	.ant-tabs-nav-list {
+
+		&:first-child {
+			margin-left: 0.24rem;
+		}
+	}
 }
 
-.mr-16{
-	margin-right: 16px;
-}
-.mr-10{
-	margin-right: 10px;
+.mr-8 {
+	margin-right: 8px;
 }

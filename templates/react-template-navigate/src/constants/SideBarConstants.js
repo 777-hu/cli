@@ -4,6 +4,7 @@ import { SettingFilled, PlusSquareFilled, MinusSquareFilled } from '@ant-design/
 const Pages = React.lazy(() => import("../pages/index"));
 const TestOne = React.lazy(() => import("../pages/testPage/testOne"));
 const TestTwo = React.lazy(() => import("../pages/testPage/testTwo"));
+const MessageCenter = React.lazy(() => import("../pages/messageCenter"));
 
 const sideBarKey = {
 	PAGES: '/pages',
@@ -24,6 +25,12 @@ const sideBarData = [
 		component: <Pages />,
 		icon: sideBarIcon.ENTRY,
 		type: "sidebar", // 标识为侧边栏项
+	},
+	{
+		name: "消息中心",
+		path: '/message-center',
+		component: <MessageCenter />,
+		type: "route", // 标识为路由项
 	},
 	{
 		name: "申领",

@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 import { Popover } from 'antd';
 import {GlobalOutlined, createFromIconfontCN } from '@ant-design/icons';
-import '../css/firstNavigation.scss'
+import '../../css/firstNavigation.scss'
 import { Link } from 'react-router-dom';
 
 function FirstNavigation(props) {
 	const { sideBarData, onNavSelect, selectedNavBar } = props
 
 	const triggerIcon = (item) => {
-
-		const selectedClass = selectedNavBar === item.name ? 'navigation-selected' : ''; 
+		const { path, name, icon } = item;
+		const selectedClass = selectedNavBar === path ? 'navigation-selected' : ''; 
 
         return (
             <p
-                onClick={() => {onNavSelect(item)}}
+                onClick={() => {onNavSelect(path)}}
                 className={`${selectedClass} navigation-icon`}
             >
-                <GlobalOutlined style={{fontSize: 24}}/>
+                { icon }
             </p>
         )
     }
